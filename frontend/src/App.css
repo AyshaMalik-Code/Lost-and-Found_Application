@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.7);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+/* CONTAINER */
+.container {
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* SEARCH */
+.search-box {
+  padding: 10px;
+  width: 250px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+/* FILTER BUTTONS */
+.filter-btn {
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.active {
+  background: #ffd369;
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  background: white;
+  color: black;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px;
+  width: 250px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* BUTTON */
+button {
+  margin: 5px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
