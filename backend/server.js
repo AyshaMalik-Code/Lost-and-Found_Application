@@ -4,18 +4,36 @@ const cors = require("cors");
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
+
+// Static Folder
 app.use("/uploads", express.static("uploads"));
 
-mongoose.connect(
-  "mongodb://<user name>:<user password>@ac-jqemwpb-shard-00-00.epnjwxw.mongodb.net:27017,ac-jqemwpb-shard-00-01.epnjwxw.mongodb.net:27017,ac-jqemwpb-shard-00-02.epnjwxw.mongodb.net:27017/?ssl=true&replicaSet=atlas-iukm9z-shard-0&authSource=admin&appName=Cluster0",
-)
-.then(() => console.log("✅ MongoDB Connected"))
-.catch(err => console.log("❌ MongoDB connection error:", err));
+// MongoDB Connection
+mongoose
+  .connect(
+    "mongodb+srv://ay_malik:2908290929082909@cluster0.prgsiok.mongodb.net/DATABASE_NAME?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("✅ MongoDB Connected Successfully");
+  })
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Error:", err);
+  });
 
+// Routes
 app.use("/api/items", require("./routes/itemRoutes"));
 
-app.listen(5000, () => {
-  console.log("🚀 Server running on port 5000");
+// Default Route
+app.get("/", (req, res) => {
+  res.send("Lost & Found API is Running...");
+});
+
+// Start Server
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
